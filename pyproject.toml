@@ -7,7 +7,7 @@ name = "swarmmerge"
 version = "0.1.0"
 description = "Semantic 3-way AST conflict resolution and code synthesizer for the Prismatic Engine swarm ecosystem"
 readme = "README.md"
-authors = [{ name = "Michael Gulden", email = "mbgulden@gmail.com" }]
+authors = [{ name = "Michael Gulden", email = "michael@growthwebdev.com" }]
 license = { text = "MIT" }
 requires-python = ">=3.9"
 classifiers = [
@@ -29,3 +29,6 @@ where = ["."]
 
 [tool.setuptools.package-data]
 swarmmerge = ["py.typed"]
+
+[project.urls]
+Homepage = "https://github.com/mbgulden/swarmmerge"
