@@ -1,7 +1,8 @@
 import ast
-from typing import List, Dict, Set
-from .types import DiffHunk
+
 from .ast_differ import ASTDiffer
+from .types import DiffHunk
+
 
 class Synthesizer:
     """Combines resolved hunks into final source."""
@@ -9,12 +10,12 @@ class Synthesizer:
     def __init__(self):
         self.differ = ASTDiffer()
 
-    def synthesize(self, base: str, hunks_ours: List[DiffHunk], hunks_theirs: List[DiffHunk]) -> str:
+    def synthesize(self, base: str, hunks_ours: list[DiffHunk], hunks_theirs: list[DiffHunk]) -> str:
         """Produce merged output from base and hunks."""
         base_symbols = self.differ.extract_symbols(base)
         
         # Apply hunks to a map of symbols
-        merged_symbols: Dict[str, str] = {}
+        merged_symbols: dict[str, str] = {}
         for name, node in base_symbols.items():
             merged_symbols[name] = ast.unparse(node)
             
@@ -36,13 +37,13 @@ class Synthesizer:
         imports = []
         others = []
         for name, content in merged_symbols.items():
-            if name.startswith("import_") or name.startswith("from_"):
+            if name.startswith(("import_", "from_")):
                 imports.append(content)
             else:
                 others.append(content)
                 
         # Deduplicate and sort imports
-        imports = sorted(list(set(imports)))
+        imports = sorted(set(imports))
         
         final_lines = []
         if imports:
