@@ -1,8 +1,8 @@
-import ast
 import uuid
-from typing import List, Tuple
-from .types import Conflict, ConflictType, DiffHunk
+
 from .ast_differ import ASTDiffer
+from .types import Conflict, ConflictType
+
 
 class ConflictResolver:
     """Attempts automatic resolution of merge conflicts."""
@@ -10,9 +10,9 @@ class ConflictResolver:
     def __init__(self):
         self.differ = ASTDiffer()
 
-    def resolve(self, base: str, ours: str, theirs: str, conflicts: List[Conflict]) -> Tuple[str, List[Conflict]]:
+    def resolve(self, base: str, ours: str, theirs: str, conflicts: list[Conflict]) -> tuple[str, list[Conflict]]:
         """Returns resolved source and remaining unresolvable conflicts."""
-        unresolved: List[Conflict] = []
+        unresolved: list[Conflict] = []
         
         # Simple text merge fallback for now if no smart rules apply
         # We will extract hunks and try to merge them.
