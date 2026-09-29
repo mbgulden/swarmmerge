@@ -1,7 +1,8 @@
-from ..types import MergeResult, MergeStats
 from ..ast_differ import ASTDiffer
 from ..resolver import ConflictResolver
 from ..synthesizer import Synthesizer
+from ..types import MergeResult, MergeStats
+
 
 class PythonMergeStrategy:
     """Python-specific AST merge logic."""
