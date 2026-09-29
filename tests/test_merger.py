@@ -1,5 +1,5 @@
-import pytest
 from swarmmerge import ASTMerger
+
 
 def test_merge_no_conflict():
     merger = ASTMerger()
