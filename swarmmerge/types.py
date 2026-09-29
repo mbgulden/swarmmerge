@@ -1,14 +1,12 @@
 import enum
-from dataclasses import dataclass, field
-from typing import List, Tuple, Optional
+from dataclasses import dataclass
+
 
 class MergeError(Exception):
     """Base class for merge errors."""
-    pass
 
 class ConflictError(MergeError):
     """Raised when an unresolvable structural conflict occurs."""
-    pass
 
 class ConflictType(enum.Enum):
     STRUCTURAL = "structural"
@@ -20,9 +18,9 @@ class ConflictType(enum.Enum):
 class Conflict:
     conflict_id: str
     file_path: str
-    base_range: Tuple[int, int]
-    ours_range: Tuple[int, int]
-    theirs_range: Tuple[int, int]
+    base_range: tuple[int, int]
+    ours_range: tuple[int, int]
+    theirs_range: tuple[int, int]
     conflict_type: ConflictType
     description: str
 
@@ -44,5 +42,5 @@ class DiffHunk:
 @dataclass
 class MergeResult:
     merged_source: str
-    conflicts: List[Conflict]
+    conflicts: list[Conflict]
     stats: MergeStats

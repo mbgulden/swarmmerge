@@ -1,7 +1,9 @@
 import argparse
 import sys
 from pathlib import Path
+
 from .merger import ASTMerger
+
 
 def main():
     parser = argparse.ArgumentParser(description="AST-aware 3-way merge tool.")

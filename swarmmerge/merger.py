@@ -1,6 +1,10 @@
 from pathlib import Path
-from .types import MergeResult, Conflict, ConflictType, MergeStats, DiffHunk, MergeError, ConflictError
+
 from .languages.python import PythonMergeStrategy
+from .types import (
+    MergeResult,
+)
+
 
 class ASTMerger:
     """Main facade for 3-way merge."""

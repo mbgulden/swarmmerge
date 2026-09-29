@@ -1,5 +1,5 @@
-import pytest
 from swarmmerge import ASTDiffer
+
 
 def test_extract_symbols():
     differ = ASTDiffer()
