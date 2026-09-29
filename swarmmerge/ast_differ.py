@@ -1,13 +1,14 @@
 import ast
-from typing import Dict, List
+
 from .types import DiffHunk
+
 
 class ASTDiffer:
     """Computes structural differences between two ASTs."""
     
-    def diff(self, source_a: str, source_b: str) -> List[DiffHunk]:
+    def diff(self, source_a: str, source_b: str) -> list[DiffHunk]:
         """Compute the AST-level diff between two source strings."""
-        hunks: List[DiffHunk] = []
+        hunks: list[DiffHunk] = []
         syms_a = self.extract_symbols(source_a)
         syms_b = self.extract_symbols(source_b)
         
@@ -47,9 +48,9 @@ class ASTDiffer:
                 
         return hunks
 
-    def extract_symbols(self, source: str) -> Dict[str, ast.AST]:
+    def extract_symbols(self, source: str) -> dict[str, ast.AST]:
         """Extract top-level symbol map (functions, classes, imports)."""
-        symbols: Dict[str, ast.AST] = {}
+        symbols: dict[str, ast.AST] = {}
         if not source.strip():
             return symbols
             
