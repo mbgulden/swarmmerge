@@ -1,5 +1,5 @@
-import pytest
-from swarmmerge import Synthesizer, DiffHunk
+from swarmmerge import DiffHunk, Synthesizer
+
 
 def test_synthesize_add():
     synth = Synthesizer()
